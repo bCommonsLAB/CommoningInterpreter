@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Commoning Interpreter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="styles/loader.css">
+    <link rel="stylesheet" href="styles/dropdown.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/input.css">
+    <link rel="stylesheet" href="styles/tooltip.css">
+    <link rel="stylesheet" href="styles/draganddrop.css">
+    <link rel="stylesheet" href="styles/mobile.css">
+    <link rel="stylesheet" href="styles/cards.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
+</head>
+<body>
+ 
+    <div id="loading-screen" style="display: none;">
+        <div class="loader">
+            <div class="inner one"></div>
+            <div class="inner two"></div>
+            <div class="inner three"></div>
+        </div>
+    </div>
+   
+<header>
+    <div class="seitentitel"><p class="titel">Commoning Interpreter</p></div>
+    <div class="einführung">
+        <div class="einfuehrungstext" id="text1"></div>
+    </div>
+</header>
+<div class="container">
+    <div class="form-container">
+        <p id="status" class="status"></p>
+        <div class="result-grid">    
+            <div class="send-wraper">
+                <div class="input-mic-wraper">
+                    <textarea name="text" class="input" placeholder="I am your commoning interpreter ;) You can enter your thoughts on topics related to commoning here. I will try to transcribe it and write a brief reflection. I will also try to assess how much the text aligns with the ideas of commoning...." id="user-text" ></textarea>
+                    <div class="micdrag">
+                        <button id="mic-button" class="micbutton"><i class="fa-solid fa-microphone"></i></button>
+                        <button id="open-popup" class="micbutton"><i class="fa-solid fa-file"></i></i></button>
+                    </div>
+                </div>
+                <button id="sendbutton" class="glow-on-hover" type="button" title="You are a scholar with extensive knowledge in the field of commoning and embody the teachings of Silke Helfrich, as she has published in her works, including *Free, Fair & Alive: The Insurgent Power of the Commons*. Analyze the texts in this spirit and present them in understandable language!">Send</button>
+            </div>
+            <div class="betweenresult"></div>
+                <div class="result-top">
+                    <div>
+                        <h2>Reflection on your thoughts</h2>  
+                    </div>
+                    <div class="select">
+                        <div class="selected">
+                          <span>Select</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" class="arrow">
+                            <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path>
+                          </svg>
+                        </div>
+                        <div class="options">
+                        <div>
+                              <label class="option" for="all" onclick="text2Speech('reflection')"><i class="fa-solid fa-volume-high"></i>    Vorlesen</label>
+                          </div>
+                          <div class="value">
+                              <label class="option"onclick="copyText('reflection')"><i class="fa-solid fa-copy"></i>    Kopieren</label>
+                          </div>
+                          <div class="value">
+                              <label class="option"  onclick="shareText('reflection')"><i class="fa-solid fa-envelope"></i>    Senden</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-bottom">
+                    <p class="cardresult" id="reflection"   title="Reflect on how well the text reflects the values of commoning. Which parts of the text particularly align with the logic of commoning, and which parts particularly contradict it?"></p>  
+                </div>
+            </div>
+        </div>
+        <div id="sprachanalyse">
+            <div>
+                <h2>Analysis of Commoning Values</h2>
+            </div>
+        </div>
+    <div class="center" id="center">
+        <div class="group-wraper">
+            <div class="media-cicle-wraper">
+                <div class="cardCommoning" title="Dieser Wert sollte die Verbundenheit der Menschen ausdrücken, wobei 0 sehr egoistisch ist und 100 sehr gemeinschaftssinnig ist.">
+                    <div class="circlewraper">
+                    <div class="pie animate no-round hover-text" id="circle-gemeinschaft" style="--c:rgb(173, 216, 230); --secondary-color: rgb(113, 112, 114);">
+                        <div class="prozent" id="gemeinschaft-prozent"></div>
+                    </div> </div>
+                    <div class="carddescribt">
+                        <p>Community</p>
+                    </div>
+                </div>
+
+                <div class="cardCommoning" title="Dieser Wert sollte die Vertrauenswürdigkeit des Textes ausdrücken, wobei 0 sehr mistrauisch ist und 100 sehr vertrauenswürdig ist.">
+                    <div class="circlewraper">
+                    <div class="pie animate no-round hover-text" id="circle-vertrauen" style="--c:rgb(178, 224, 164); --secondary-color: rgb(113, 112, 114);">
+                        <div class="prozent" id="vertrauen-prozent"></div>
+                    </div></div>
+                    <div class="carddescribt">
+                        <p>Trust</p>
+                    </div>
+                </div>
+            </div>
+            <div class="media-cicle-wraper"> 
+                <div class="cardCommoning" title="Dieser Wert sollte ausdrücken, wie einladend und offenherzig der Text für eine kollaboration ist, wobei 0 sehr abweisend ist und 100 sehr einladend ist.">
+                    <div class="circlewraper">
+                    <div class="pie animate no-round hover-text" id="circle-gegenseitig" style="--c:rgb(250, 214, 165); --secondary-color: rgb(113, 112, 114);">
+                        <div class="prozent" id="gegenseitig-prozent"></div>
+                    </div></div>
+                    <div class="carddescribt">
+                        <p>Mutuality</p>
+                    </div>
+                </div>
+                <div class="cardCommoning" title="Dieser Wert sollte ausdrücken, wie bewust man mit Ressourcen umgeht, wobei 0 sehr verschwenderisch und 100 sehr bewust und sparspam ist.">
+                    <div class="circlewraper">
+                    <div class="pie animate no-round hover-text" id="circle-nachhaltig" style="--c:rgb(230, 230, 250); --secondary-color: rgb(113, 112, 114);">
+                        <div class="prozent" id="nachhaltig-prozent"></div>
+                    </div></div>
+                    <div class="carddescribt">
+                        <p>Sustainable</p>
+                    </div>
+                </div>
+            </div>
+            <div class="media-cicle-wraper">
+                <div class="cardCommoning" title="Dieser Wert sollte ausdrücken, wie Inklussiv der Text ist, wobei 0 bestimmte Menschen ausgrenzt und 100 alle einschliesst.">
+                    <div class="circlewraper">
+                    <div class="pie animate no-round hover-text" id="circle-inklusion" style="--c:rgb(255, 209, 220); --secondary-color: rgb(113, 112, 114);">
+                        <div class="prozent" id="inklusion-prozent"></div>      
+                    </div></div>
+                    <div class="carddescribt">
+                        <p>Inclusive</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div id="mustersprachanalyse">
+        <div>
+            <h2>Analysis of the Language Patterns of Commoning</h2>
+        </div>
+    </div> 
+        <div class="group-wraper">  
+            <div class="media-cicle-wraper">
+                <div id="mustersprache">
+                    <div class="cardMustersprache" title="Dieser Wert sollte ausdrücken, wie sehr der Text Zusammenarbeit und Förderung von Beziehungen ausdrückt, wobei 0 asoziales Verhalten und 100 sehr soziales Verhalten ausdrückt">
+                        <div class="circlewraper">
+                        <div class="pie animate no-round hover-text" id="circle-sozialesmiteinander" style="--c:rgb(152, 255, 152); --secondary-color: rgb(113, 112, 114);">
+                            <div class="prozent" id="sozialesmiteinander-prozent"></div>
+                        </div></div>
+                        <div class="carddescribt">
+                            <p>Social interaction</p>
+                        </div>
+                    </div>
+                </div>   
+                <div class="cardMustersprache" title="Dieser Wert sollte ausdrücken, wie sehr der Text das Aushandeln auf Augenhöhe fördert, wobei 0 sehr Rangordnungsorientiert ist und 100 die Begenung auf Augenhöhe fördert.">
+                    <div class="circlewraper">
+                    <div class="pie animate no-round hover-text" id="circle-gleichrangigeselbstorganisation" style="--c:rgb(255, 182, 193); --secondary-color: rgb(113, 112, 114);">
+                        <div class="prozent" id="gleichrangigeselbstorganisation-prozent"></div>
+                    </div></div>
+                    <div class="carddescribt">
+                        <p>Equal self-organization</p>
+                    </div>
+                </div>  
+            </div>
+            <div class="media-cicle-wraper">
+                <div class="cardMustersprache" title="Dieser Wert sollte ausdrücken, wie sehr der Text sorgendes und selbstbestimmtes Wirtschaften ausdrückt, wobei 0 sehr fremdbestimmtes profititorientiertes Wirtschaften ist und 100 selbstbestimmtes und bedürfnisorientiertes Wirtschaften ausdrückt.">
+                    <div class="circlewraper">
+                    <div class="pie animate no-round hover-text" id="circle-sorgendesselbstbestimmteswirtschaften" style="--c:rgb(255, 245, 186); --secondary-color: rgb(113, 112, 114);">
+                        <div class="prozent" id="sorgendesselbstbestimmteswirtschaften-prozent"></div>
+                    </div></div>
+                    <div class="carddescribt">
+                        <p>Caring, self-determined economy</p>
+                    </div>
+                </div>    
+            </div>
+        </div>  
+    </div>
+        <div id="calltoaction">
+            <p>Do you like this application? Are you interested in learning more about it?</p>
+            <div>
+                <a href="https://www.bcommonslab.org/en/visions/commoningversteher" target="_blank" style="text-decoration: none">
+                    <button class="calltoact">
+                        More information here
+                        <span style="margin-left: 10px;">→</span>
+                    </button>
+                </a>
+            </div>
+        </div>      
+    </div>
+</div>
+<div id="popup-container" class="popup-container">
+    <div class="popup-content">
+        <span id="close-popup" class="close-button">&times;</span>
+        <div class="drag-image">
+            <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+            <h6>Drag & Drop File Here</h6>
+            <span>OR</span>
+            <button>Browse File</button>
+            <input type="file" hidden>
+        </div>
+    </div>
+</div>
+<div id="bg">
+    <canvas class="backgroundcanvas"></canvas>
+    <canvas class="backgroundcanvas"></canvas>
+    <canvas class="backgroundcanvas"></canvas>
+</div>
+ 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="script/background.js"></script>
+<script src="script/send.js"></script>
+<script src="script/sharetext.js"></script>
+<script src="script/copytext.js"></script>
+<script src="script/speechtotext.js"></script>
+<script src="script/presentation.js"></script>
+<script src="script/transcribe-button.js"></script>
+<script src="script/animations.js"></script>
+<script src="script/draganddrop.js"></script>
+</body>
+</html>
+ 
+ 
