@@ -35,13 +35,13 @@ def transcribe():
                 'https://api.openai.com/v1/audio/transcriptions',
                 headers=headers,
                 files=files,
-                data={'model': 'whisper-1', 'language': 'de'}
+                data={'model': 'whisper-1', 'language': 'en'}
             )
         
         if response.status_code == 200:
             result = response.json()
             transcript = result['text']
-            language = result.get('language', 'de')  # Standard auf 'de' setzen
+            language = result.get('language', 'en')  # Standard auf 'de' setzen
 
             return jsonify({'transcript': transcript, 'language': language}), 200
         else:
