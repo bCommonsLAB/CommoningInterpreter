@@ -71,6 +71,6 @@ Open the `index.html` file in your browser to use the speech-to-text functionali
 If you have any questions or issues, feel free to contact us. For more information on this and other projects, check here: https://www.bcommonslab.org/
 
 If you want to try out the application, feel free to do so here: 
-[Commoning Interpreter](https://app.bcommonslab.org/en/commoningversteher/)
+[Commoning Interpreter](https://www.bcommonslab.org/en/visions/commoningversteher)
 
 Good luck and enjoy your Commoning Interpreter project!
