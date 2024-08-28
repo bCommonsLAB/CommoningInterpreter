@@ -4,18 +4,18 @@ config = {
     "jsonbuild": """
             Analyse the following text return the results in a structured JSON format in english without a markdown viewer. The result must contain following components:
 
-            "Transcript": Der Text sollte vollständig wiedergegeben werden.
-            "Eindruck": Reflektiere den Inhalt und wie gut der Text die Werte des Commoning widerspiegelt. Beurteile, welche Aspekte des Textes besonders der Logik des Commoning entsprechen und welche möglicherweise im Widerspruch stehen.
-            "Gemeinschaft": Gib eine Bewertung zwischen 0 und 100 ab, die ausdrückt, wie stark die Verbundenheit der Menschen im Text dargestellt wird (0 = sehr egoistisch, 100 = sehr gemeinschaftssinnig).
-            "Vertrauen": Gib eine Bewertung zwischen 0 und 100 ab, die ausdrückt, wie vertrauenswürdig der Text wirkt (0 = sehr misstrauisch, 100 = sehr vertrauenswürdig).
-            "Gegenseitig": Gib eine Bewertung zwischen 0 und 100 ab, die ausdrückt, wie einladend und offen der Text für Kollaboration ist (0 = sehr abweisend, 100 = sehr einladend).
-            "Nachhaltig": Gib eine Bewertung zwischen 0 und 100 ab, die ausdrückt, wie bewusst der Text mit Ressourcen umgeht (0 = sehr verschwenderisch, 100 = sehr bewusst und sparsam).
-            "Inklusion": Gib eine Bewertung zwischen 0 und 100 ab, die ausdrückt, wie inklusiv der Text ist (0 = ausgrenzend, 100 = einschließend).
-            "Kommerziell": Gib eine Bewertung zwischen 0 und 100 ab, die ausdrückt, wie sehr der Text profitorientiertes Wirtschaften ausdrückt (0 = bedürfnisorientiert, 100 = profitorientiert).
-            "SozialesMiteinander": Gib eine Bewertung zwischen 0 und 100 ab, die ausdrückt, wie sehr der Text Zusammenarbeit und Förderung von Beziehungen unterstützt (0 = asozial, 100 = sehr sozial).
-            "GleichrangigeSelbstOrganisation": Gib eine Bewertung zwischen 0 und 100 ab, die ausdrückt, wie sehr der Text das Aushandeln auf Augenhöhe fördert (0 = hierarchisch, 100 = gleichrangig).
-            "SorgendesSelbstbestimmtes Wirtschaften": Gib eine Bewertung zwischen 0 und 100 ab, die ausdrückt, wie sehr der Text sorgendes und selbstbestimmtes Wirtschaften unterstützt (0 = fremdbestimmt, 100 = selbstbestimmt und bedürfnisorientiert). 
+            "Transcript": The text should be fully reproduced.  
+            "Eindruck": Reflect on the content and how well the text reflects the values of commoning. Assess which aspects of the text particularly align with the logic of commoning and which may potentially contradict it.
+            "Gemeinschaft": Provide a rating between 0 and 100 that expresses how strongly the sense of connection among people is depicted in the text (0 = very selfish, 100 = very community-oriented).  
+            "Vertrauen": Provide a rating between 0 and 100 that expresses how trustworthy the text appears (0 = very distrustful, 100 = very trustworthy).  
+            "Gegenseitig": Provide a rating between 0 and 100 that expresses how inviting and open the text is for collaboration (0 = very dismissive, 100 = very inviting).  
+            "Nachhaltig": Provide a rating between 0 and 100 that expresses how consciously the text manages resources (0 = very wasteful, 100 = very mindful and frugal).  
+            "Inklusion": Provide a rating between 0 and 100 that expresses how inclusive the text is (0 = exclusive, 100 = inclusive).  
+            "Kommerziell": Provide a rating between 0 and 100 that expresses how much the text reflects profit-oriented economic practices (0 = needs-oriented, 100 = profit-oriented).  
+            "SozialesMiteinander": Provide a rating between 0 and 100 that expresses how much the text supports collaboration and the fostering of relationships (0 = antisocial, 100 = very social).  
+            "GleichrangigeSelbstOrganisation": Provide a rating between 0 and 100 that expresses how much the text promotes negotiating on equal terms (0 = hierarchical, 100 = equal).  
+            "SorgendesSelbstbestimmtesWirtschaften": Provide a rating between 0 and 100 that expresses how much the text supports caring and self-determined economic practices (0 = externally controlled, 100 = self-determined and needs-oriented). 
             
-            Der User Text ist: 
+            The User Text is: 
             """
 }

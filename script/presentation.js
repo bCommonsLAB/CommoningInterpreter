@@ -1,7 +1,7 @@
 const fullTextout =
   "I am your Commoning ... ";
 const fullText =
-  "I am your commoning interpreter, and you can record your thoughts on topics related to commoning here. I will transcribe them, write a brief reflection, and then assess how well the text aligns with the ideals of commoning.";
+  "I am your Commoning Interpreter, and you can record your thoughts on topics related to commoning here. I will transcribe them, write a brief reflection, and then assess how well the text aligns with the ideals of commoning.";
 
 const initialText = fullTextout;
 text1.innerText = fullTextout;
