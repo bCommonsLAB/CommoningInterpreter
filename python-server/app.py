@@ -35,7 +35,7 @@ def transcribe():
                 'https://api.openai.com/v1/audio/transcriptions',
                 headers=headers,
                 files=files,
-                data={'model': 'whisper-1', 'language': 'en'}
+                data={'model': 'whisper-1'}
             )
         
         if response.status_code == 200:
@@ -115,7 +115,7 @@ def tts():
         return {"error": "Text not provided"}, 400
 
     # Erzeuge eine TTS-Audiodatei
-    tts = gTTS(text, lang='de')
+    tts = gTTS(text, lang='en')
     audio_file = BytesIO()
     tts.write_to_fp(audio_file)
     audio_file.seek(0)
@@ -124,4 +124,4 @@ def tts():
 
 
 if __name__ == '__main__':
-    app.run(port=5001, debug=True)
+    app.run(port=5002, debug=True)

@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const formData = new FormData();
     formData.append("audio", file);
 
-    fetch("http://localhost:5001/transcribe", {
+    fetch(pythonURL + "transcribe", {
       method: "POST",
       body: formData,
     })

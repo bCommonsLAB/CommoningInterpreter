@@ -1,7 +1,8 @@
+
 function text2Speech(elementId, section) {
   var text = document.getElementById(elementId).innerText;
-
-  fetch("http://localhost:5001/tts", {
+  showLoading();
+  fetch(pythonURL + "tts", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -12,8 +13,13 @@ function text2Speech(elementId, section) {
     .then((blob) => {
       var url = window.URL.createObjectURL(blob);
       var audio = new Audio(url);
+      hideLoading();
       audio.play();
     })
-    .catch((error) => console.error("Error:", error));
+    .catch((error) => {
+      hideLoading();
+      console.error("Error:", error);
+    })
+
 }
 

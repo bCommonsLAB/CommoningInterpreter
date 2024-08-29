@@ -1,3 +1,13 @@
+const loadingScreen = document.getElementById("loading-screen");
+
+function showLoading() {
+  loadingScreen.style.display = "flex";
+}
+
+function hideLoading() {
+  loadingScreen.style.display = "none";
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const statusElement = document.getElementById("status");
   const sendBtn = document.getElementById("sendbutton");
@@ -5,7 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const sprachanalyse = document.getElementById("sprachanalyse");
   const mustersprachanalyse = document.getElementById("mustersprachanalyse");
   const musteranalyse = document.getElementById("mustersprache");
-  const loadingScreen = document.getElementById("loading-screen");
 
   centerSprachanalyse.style.display = "none";
   sprachanalyse.style.display = "none";
@@ -35,14 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
         fill: "forwards",
       },
     );
-  }
-
-  function showLoading() {
-    loadingScreen.style.display = "flex";
-  }
-
-  function hideLoading() {
-    loadingScreen.style.display = "none";
   }
 
   function resetAll() {
@@ -91,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const formData = new FormData();
     formData.append("text", userText);
 
-    fetch("http://localhost:5001/analyze-text", {
+    fetch(pythonURL  + "analyze-text", {
       method: "POST",
       body: formData,
     })
@@ -169,4 +170,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (circle) circle.style.setProperty("--p", value);
     if (percent) percent.innerText = value + "%";
   }
+
+  
 });

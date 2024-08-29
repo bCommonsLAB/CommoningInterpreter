@@ -40,7 +40,7 @@
         <div class="result-grid">    
             <div class="send-wraper">
                 <div class="input-mic-wraper">
-                    <textarea name="text" class="input" placeholder="I am your commoning interpreter ;) You can enter your thoughts on topics related to commoning here. I will try to transcribe it and write a brief reflection. I will also try to assess how much the text aligns with the ideas of commoning...." id="user-text" ></textarea>
+                    <textarea name="text" class="input" placeholder="I am your commoning interpreter ;) You can dictate or type your thoughts on topics related to commoning in any language here. Click on 'Send' and I will try write a brief reflection. I will also try to assess how much the text aligns with the ideas of commoning..." id="user-text" ></textarea>
                     <div class="micdrag">
                         <button id="mic-button" class="micbutton"><i class="fa-solid fa-microphone"></i></button>
                         <button id="open-popup" class="micbutton"><i class="fa-solid fa-file"></i></i></button>
@@ -209,7 +209,13 @@
     <canvas class="backgroundcanvas"></canvas>
     <canvas class="backgroundcanvas"></canvas>
 </div>
- 
+<script>
+    // local
+    // var pythonURL = "http://localhost:5002/";    
+    // server
+    var pythonURL = "https://api.bcommonslab.org/commoning/";
+</script> 
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="script/background.js"></script>
 <script src="script/send.js"></script>
